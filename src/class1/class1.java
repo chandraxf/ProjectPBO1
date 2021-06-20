@@ -2,30 +2,72 @@ package class1;
 import java.util.Scanner;
 public class class1 {
     Scanner input= new Scanner(System.in);
-    public int pilih;
-    public int pembayaran;
-    public int pubg;
-    public int ml;
-    public int ff;
-    public int pb;
-    public int id;
-    public Double hitung;
-    public Double total;
+    private int pilih;
+    private int pembayaran;
+    private int pubg;
+    private int ml;
+    private int ff;
+    private int pb;
+    private int id;
+    private int total;
     
     //construktor
     public class1(){
-    
+        System.out.println("===============================");
     }
-    
     public class1(int a){
-    
+        class1 menu = new class1();       
+        System.out.println("Pilih Menu : ");
+        System.out.println("1.PUBG, 2.ML ,3.FF, 4.PB");
+        System.out.println("Masukan Pilihan : ");
+        simpan = input.nextInt();
+        menu.setPilih(simpan);
+        
+        switch(menu.getPilih()){
+            case 1:
+            menu.pubg();
+            menu.inputPubg();
+            break;
+            case 2:
+            menu.ml();
+            menu.inputMl();
+            break;
+            case 3:
+            menu.ff();
+            menu.inputFf();
+            break;
+            case 4:
+            menu.pb();
+            menu.inputPb();
+            break;
+            default :
+            System.out.println("Pilihan Tidak ada!!!");
+        } 
     }
-    
     public class1(int a, int b){
+        int x = b - a;
+        System.out.println("Harga      : "+a);
+        System.out.println("Total Uang : "+b);
+        System.out.println("Kembalian  : "+x);
+    }     
     
+    public static void main(String[] args) {
+        //Halaman Utama
+        int a=1;
+        class1 cls = new class1(a);
+               
     }
     
     //Method Setter dan getter
+
+    public int getPilih() {
+        return pilih;
+    }
+
+    public void setPilih(int pilih) {
+        this.pilih = pilih;
+    }
+    
     public int getId() {
         return id;
     }
@@ -73,56 +115,13 @@ public class class1 {
     public void setPb(int pb) {
         this.pb = pb;
     }
-
-    public Double getTotal() {
+    public int getTotal() {
         return total;
     }
 
-    public void setTotal(Double total) {
+    public void setTotal(int total) {
         this.total = total;
     }
-
-    public Double getHitung() {
-        return hitung;
-    }
-
-    public void setHitung(Double hitung) {
-        this.hitung = hitung;
-    }
-    
-    public static void main(String[] args) {
-    byte pilih;
-    String simpan;
-        Scanner input= new Scanner(System.in);
-        class1 menu = new class1();
-        System.out.println("Pilih Menu : ");
-        System.out.println("1.PUBG, 2.ML ,3.FF, 4.PB");
-        System.out.println("Masukan Pilihan : ");
-        pilih = input.nextByte();
-        
-        switch(pilih){
-            case 1:
-            menu.pubg();
-            menu.inputPubg();
-            break;
-            case 2:
-            menu.ml();
-            menu.inputMl();
-            break;
-            case 3:
-            menu.ff();
-            menu.inputFf();
-            break;
-            case 4:
-            menu.pb();
-            menu.inputPb();
-            break;
-            default :
-            System.out.println("Pilihan Tidak ada!!!");
-        }       
-    }
-    
-    //method
     public void pubg(){
         System.out.println("Pengisian UC PUBGM");
         System.out.println("Daftar UC: ");
@@ -151,19 +150,23 @@ public class class1 {
         System.out.println("2. 2000 Cash : 19rb");
         System.out.println("3. 5000 Cash : 49rb");
     }
-    int idx, jlh;
+    int idx, jlh, simpan;
     public void inputPubg(){
             class1 menu = new class1();          
             System.out.println("Masukan ID : ");
             idx=input.nextInt();
             System.out.println("Masukan pilihan : ");
             jlh=input.nextInt();
+            System.out.println("Masukan Uang : ");
+            simpan = input.nextInt();
+            menu.setTotal(simpan);
             menu.setId(idx);
             menu.setPubg(jlh);
             System.out.println("ID : "+menu.getId());
             System.out.println("Pilihan UC : "+menu.getPubg());
             hargaPubg();
     }
+    
     
     public void hargaPubg(){
         class1 menu = new class1();
@@ -173,34 +176,43 @@ public class class1 {
                  jlhx = 60;
                  harga = 15000;
                  System.out.println("Jumlah UC : "+jlhx);
-                 System.out.println("Harga : "+harga);
+                 menu.setPembayaran(harga);
+                 menu.setTotal(simpan);                 
                  break;
              case 2:
                  jlhx = 200;
                  harga = 50000;
                  System.out.println("Jumlah UC : "+jlhx);
-                 System.out.println("Harga : "+harga);
+                 menu.setPembayaran(harga);
+                 menu.setTotal(simpan);
                  break;
              case 3:
                  jlhx = 610;
                  harga = 110000;
                  System.out.println("Jumlah UC : "+jlhx);
-                 System.out.println("Harga : "+harga);
+                 menu.setPembayaran(harga);
+                 menu.setTotal(simpan);
                  break;
              default:
                  jlhx = 0;
                  harga = 0;
                  System.out.println("Jumlah UC : "+jlhx);
-                 System.out.println("Harga : "+harga);
+                 menu.setPembayaran(harga);
+                 menu.setTotal(simpan);               
          }
-    }
          
+         class1 ttotal = new class1(menu.getPembayaran(),menu.getTotal());
+    }
+           
          public void inputMl(){
             class1 menu = new class1();          
             System.out.println("Masukan ID : ");
             idx=input.nextInt();
             System.out.println("Masukan pilihan : ");
             jlh=input.nextInt();
+            System.out.println("Masukan Uang : ");
+            simpan = input.nextInt();
+            menu.setTotal(simpan);
             menu.setId(idx);
             menu.setMl(jlh);
             System.out.println("ID : "+menu.getId());
@@ -217,26 +229,32 @@ public class class1 {
                  jlhx = 60;
                  harga = 15000;
                  System.out.println("Jumlah DM : "+jlhx);
-                 System.out.println("Harga : "+harga);
+                 menu.setPembayaran(harga);
+                 menu.setTotal(simpan);                
                  break;
              case 2:
                  jlhx = 286;
                  harga = 70000;
                  System.out.println("Jumlah DM : "+jlhx);
-                 System.out.println("Harga : "+harga);
+                 menu.setPembayaran(harga);
+                 menu.setTotal(simpan);
                  break;
              case 3:
                  jlhx = 756;
                  harga = 130000;
                  System.out.println("Jumlah DM : "+jlhx);
-                 System.out.println("Harga : "+harga);
+                 menu.setPembayaran(harga);
+                 menu.setTotal(simpan);
                  break;
              default:
                  jlhx = 0;
                  harga = 0;
                  System.out.println("Jumlah DM : "+jlhx);
-                 System.out.println("Harga : "+harga);
+                 menu.setPembayaran(harga);
+                 menu.setTotal(simpan);
          }
+           
+            class1 ttotal = new class1(menu.getPembayaran(),menu.getTotal());
          
     }
         public void inputFf(){
@@ -245,6 +263,9 @@ public class class1 {
             idx=input.nextInt();
             System.out.println("Masukan pilihan : ");
             jlh=input.nextInt();
+            System.out.println("Masukan Uang : ");
+            simpan = input.nextInt();
+            menu.setTotal(simpan);
             menu.setId(idx);
             menu.setFf(jlh);
             System.out.println("ID : "+menu.getId());
@@ -261,26 +282,32 @@ public class class1 {
                  jlhx = 50;
                  harga = 5000;
                  System.out.println("Jumlah DM : "+jlhx);
-                 System.out.println("Harga : "+harga);
+                 menu.setPembayaran(harga);
+                 menu.setTotal(simpan);
                  break;
              case 2:
                  jlhx = 200;
                  harga = 20000;
                  System.out.println("Jumlah DM : "+jlhx);
-                 System.out.println("Harga : "+harga);
+                 menu.setPembayaran(harga);
+                 menu.setTotal(simpan);
                  break;
              case 3:
                  jlhx = 600;
                  harga = 60000;
                  System.out.println("Jumlah DM : "+jlhx);
-                 System.out.println("Harga : "+harga);
+                 menu.setPembayaran(harga);
+                 menu.setTotal(simpan);
                  break;
              default:
                  jlhx = 0;
                  harga = 0;
-                 System.out.println("Jumlah DM : "+jlhx);
-                 System.out.println("Harga : "+harga);
+                 System.out.println("Jumlah DM : "+jlhx);             
+                 menu.setPembayaran(harga);
+                 menu.setTotal(simpan);
          }
+            
+            class1 ttotal = new class1(menu.getPembayaran(),menu.getTotal());
          
     }
         public void inputPb(){
@@ -289,6 +316,9 @@ public class class1 {
             idx=input.nextInt();
             System.out.println("Masukan pilihan : ");
             jlh=input.nextInt();
+            System.out.println("Masukan Uang : ");
+            simpan = input.nextInt();
+            menu.setTotal(simpan);
             menu.setId(idx);
             menu.setPb(jlh);
             System.out.println("ID : "+menu.getId());
@@ -305,26 +335,32 @@ public class class1 {
                  jlhx = 1000;
                  harga = 10000;
                  System.out.println("Jumlah Cash : "+jlhx);
-                 System.out.println("Harga : "+harga);
+                 menu.setPembayaran(harga);
+                 menu.setTotal(simpan);
                  break;
              case 2:
                  jlhx = 2000;
                  harga = 19000;
                  System.out.println("Jumlah Cash : "+jlhx);
-                 System.out.println("Harga : "+harga);
+                 menu.setPembayaran(harga);
+                 menu.setTotal(simpan);
                  break;
              case 3:
                  jlhx = 5000;
                  harga = 49000;
                  System.out.println("Jumlah Cash : "+jlhx);
-                 System.out.println("Harga : "+harga);
+                 menu.setPembayaran(harga);
+                 menu.setTotal(simpan);
                  break;
              default:
                  jlhx = 0;
                  harga = 0;
                  System.out.println("Jumlah Cash : "+jlhx);
-                 System.out.println("Harga : "+harga);
+                 menu.setPembayaran(harga);
+                 menu.setTotal(simpan);
          }
+            
+            class1 ttotal = new class1(menu.getPembayaran(),menu.getTotal());
          
     }
       
