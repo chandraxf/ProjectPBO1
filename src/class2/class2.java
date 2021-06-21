@@ -1,11 +1,36 @@
 package class2;
 import java.util.Scanner;
 public class class2 {
+    Scanner in = new Scanner(System.in);
     //Artibut
     private int penambahan;
     private int pengurangan;
     private int perkalian;
     private int angka;
+    
+    public class2(){
+        System.out.println("==========================");
+    }
+    
+    public class2(int a){
+        int pilih;
+        System.out.println("==========================");
+        System.out.println("1. Program Hitung 2. About");
+        System.out.println("Masukan Pilihan (1 / 2) : ");
+        pilih = in.nextInt();
+        //Halaman Utama
+        switch(pilih){
+            case 1:
+                halaman();
+                break;
+            case 2:
+                about();
+                break;
+            default :
+                System.out.println("Pilihan tidak ada!!!");
+                
+        }
+    }
 
         //Setter Getter
     public int getPenambahan() {
@@ -42,26 +67,8 @@ public class class2 {
     
     
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int pilih;
-        System.out.println("==========================");
-        System.out.println("1. Program Hitung 2. About");
-        System.out.println("Masukan Pilihan (1 / 2) : ");
-        pilih = in.nextInt();
-        //Halaman Utama
-        switch(pilih){
-            case 1:
-                halaman();
-                break;
-            case 2:
-                about();
-                break;
-            default :
-                System.out.println("Pilihan tidak ada!!!");
-                
-        }
-        
-        
+        class2 cls = new class2();
+              
     }
     
     //method
@@ -135,7 +142,6 @@ public class class2 {
     }
     static void halaman(){
         Scanner in = new Scanner(System.in);
-        class2 cls = new class2();
         int pilih;
      // main class
         System.out.println("==================================");
